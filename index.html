@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">　
+    <title>締</title>
+  </head>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+    }
+   
+    .Input {
+      width: 40px;
+      text-align: right;
+
+    }
+
+    .Result {
+      width: 70px;
+      text-align: right;
+
+    }
+
+    .Turi {
+      width: 50px;
+      text-align: right;
+
+    }
+
+   
+    </style>
+
+  <body>
+   
+  </br>
+    <a>釣銭準備金</div><input class="Turi" id="Turi" type="tel" value = 50000 onchange="Answer()"></a></br>
+    <a>現金支払い <input id="Cash" class="Turi" type="tel" value = 0 tabindex="1" onchange="Answer()"></a></br>
+    <a>払い戻し <input id="Refund" class="Turi" type="tel" value = 0 tabindex="1" onchange="Answer()"></a></br>
+    <a>合計 <input id="Answer" class="Result" type="text" readonly value = 50000 ></a></br>
+    </br>
+    <a> 1万円札 × <input id="TenThousand" class="Input" type="tel" maxlength = '3' tabindex="1" onchange="TenThousand()"> = <input id="TenThousandResult" class="Result" type="text" readonly value = 0 ></a></br>
+    <a> 5千円札 × <input id="FiveThousand" class="Input" type="tel" maxlength = '3' tabindex="2" onchange="FiveThousand()"> = <input id="FiveThousandResult" class="Result" type="text" readonly value = 0></a></br>
+    <a> 2千円札 × <input id="TwoThousand" class="Input" type="tel" maxlength = '3' tabindex="3" onchange="TwoThousand()"> = <input id="TwoThousandResult" class="Result" type="text" readonly value = 0></a></br>
+    <a> 1千円札 × <input id="OneThousand" class="Input" type="tel" maxlength = '3' tabindex="4" onchange="OneThousand()"> = <input id="OneThousandResult" class="Result" type="text" readonly value = 0></a></br>
+    <a>500円玉 × <input id="FiveHundred" class="Input" type="tel" maxlength = '3' tabindex="5" onchange="FiveHundred()"> = <input id="FiveHundredResult" class="Result" type="text" readonly value = 0></a></br>
+    <a>100円玉 × <input id="OneHundred" class="Input" type="tel" maxlength = '3' tabindex="6" onchange="OneHundred()"> = <input id="OneHundredResult" class="Result" type="text" readonly value = 0></a></br>
+    <a> 50円玉 × <input id="Fifty" class="Input" type="tel" maxlength = '3' tabindex="7" onchange="Fifty()"> = <input id="FiftyResult" class="Result" type="text" readonly value = 0></a></br>
+    <a> 10円玉 × <input id="Ten" class="Input" type="tel" maxlength = '3' tabindex="8" onchange="Ten()"> = <input id="TenResult" class="Result" type="text" readonly value = 0></a></br>
+    <a>　5円玉 × <input id="Five" class="Input" type="tel" maxlength = '3' tabindex="9" onchange="Five()"> = <input id="FiveResult" class="Result" type="text" readonly value = 0></a></br>
+    <a>　1円玉 × <input id="One" class="Input" type="tel" maxlength = '3' tabindex="10" onchange="One()"> = <input id="OneResult" class="Result" type="text" readonly value = 0></a></br>
+    </br>
+    <a>レジ残金 <input id="AllResult" class="Result" type="text" readonly value = 0 ></a></br>
+  
+    </br>
+    <a>結果<input id="Judge" class="Judge" type="text" readonly ></a></br>
+
+
+
+
+
+    <script>
+     
+     
+     function Answer(){ 
+    
+      if(document.getElementById('Turi').value == ''){
+        document.getElementById('Turi').value = 0
+      }
+
+      if(document.getElementById('Cash').value == ''){
+        document.getElementById('Cash').value = 0
+      }
+
+      if(document.getElementById('Refund').value == ''){
+        document.getElementById('Refund').value = 0
+      }
+
+        var Turi =   parseInt(document.getElementById('Turi').value);
+        
+        var Cash = parseInt(document.getElementById('Cash').value)  
+
+        var Refund = parseInt(document.getElementById('Refund').value)  
+
+        document.getElementById('Answer').value = Turi + Cash - Refund;
+
+        AllAdd();
+      }
+
+      //1万円
+      function TenThousand(){ 
+        var value = document.getElementById('TenThousand').value;      
+
+        if (value == ""){
+          document.getElementById('TenThousandResult').value = 0;
+        }else{
+          var Result = 10000 * value;
+          document.getElementById('TenThousandResult').value = Result;
+        }     
+       
+        AllAdd();
+        console.log('');
+
+      }
+
+      //5千円
+      function FiveThousand(){ 
+        var value = document.getElementById('FiveThousand').value;   
+
+        if (value == ""){
+          document.getElementById('FiveThousandResult').value = 0;
+        }else{
+          var Result = 5000 * value;
+          document.getElementById('FiveThousandResult').value = Result;
+        }     
+        AllAdd();               
+      
+      }
+
+      //2千円
+      function TwoThousand(){ 
+        var value = document.getElementById('TwoThousand').value;  
+        
+        if (value == ""){
+          document.getElementById('TwoThousandResult').value = 0;
+        }else{
+          var Result = 2000 * value;
+          document.getElementById('TwoThousandResult').value = Result;
+        }    
+        AllAdd();           
+
+      }
+
+       //1千円
+       function OneThousand(){ 
+        var value = document.getElementById('OneThousand').value;      
+        
+        if (value == ""){
+          document.getElementById('OneThousandResult').value = 0;
+        }else{
+          var Result = 1000 * value;
+          document.getElementById('OneThousandResult').value = Result;
+        }       
+        AllAdd();
+      }
+
+       //5百円
+       function FiveHundred(){ 
+        var value = document.getElementById('FiveHundred').value;         
+        
+        if (value == ""){
+          document.getElementById('FiveHundredResult').value = 0;
+        }else{
+          var Result = 500 * value;
+          document.getElementById('FiveHundredResult').value = Result;
+        }       
+        AllAdd();     
+      }
+
+       //1百円
+       function OneHundred(){ 
+        var value = document.getElementById('OneHundred').value;         
+       
+        if (value == ""){
+          document.getElementById('OneHundredResult').value = 0;
+        }else{
+          var Result = 100 * value;
+          document.getElementById('OneHundredResult').value = Result;
+        }       
+        AllAdd();         
+      }
+
+      //50円
+      function Fifty(){ 
+        var value = document.getElementById('Fifty').value;     
+        
+        if (value == ""){
+          document.getElementById('FiftyResult').value = 0;
+        }else{
+          var Result = 50 * value;
+          document.getElementById('FiftyResult').value = Result;
+        }       
+        AllAdd();
+      }
+
+      //10円
+      function Ten(){ 
+        var value = document.getElementById('Ten').value;  
+        
+        if (value == ""){
+          document.getElementById('TenResult').value = 0;
+        }else{
+          var Result = 10 * value;
+          document.getElementById('TenResult').value = Result;
+        }        
+        AllAdd();     
+      
+      }
+
+      //5円
+      function Five(){ 
+        var value = document.getElementById('Five').value;   
+        
+        if (value == ""){
+          document.getElementById('FiveResult').value = 0;
+        }else{
+          var Result = 5 * value;
+          document.getElementById('FiveResult').value = Result;
+        }         
+        AllAdd();      
+      }
+
+      //1円
+      function One(){ 
+        var value = document.getElementById('One').value;   
+        
+        if (value == ""){
+          document.getElementById('OneResult').value = 0;
+        }else{
+          var Result = 1 * value;
+          document.getElementById('OneResult').value = Result;
+        }              
+     
+        AllAdd();
+
+      }
+
+      function AllAdd(){ 
+               
+      var array = [
+          parseInt(document.getElementById('TenThousandResult').value)
+        , parseInt(document.getElementById('FiveThousandResult').value)
+        , parseInt(document.getElementById('TwoThousandResult').value)
+        , parseInt(document.getElementById('OneThousandResult').value)
+        , parseInt(document.getElementById('FiveHundredResult').value)
+        , parseInt(document.getElementById('OneHundredResult').value)
+        , parseInt(document.getElementById('FiftyResult').value)
+        , parseInt(document.getElementById('TenResult').value)
+        , parseInt(document.getElementById('FiveResult').value)
+        , parseInt(document.getElementById('OneResult').value)
+      ];
+      
+      var AddValue = 0;
+
+      array.forEach(function(element){
+      AddValue += element;
+      console.log(AddValue);
+      });
+  
+      (document.getElementById('AllResult').value) = AddValue;
+
+      var Judge = parseInt(document.getElementById('Answer').value) - parseInt(document.getElementById('AllResult').value);
+
+      if (Judge == 0){
+        (document.getElementById('Judge').value) = '◎　一致';
+        }else{
+          
+          (document.getElementById('Judge').value) = '×　不一致';
+        }    
+
+      }
+
+
+    </script>
+  </body>
+</html>
