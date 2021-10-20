@@ -31,7 +31,7 @@
 
     }
 
-   
+       
     </style>
 
   <body>
@@ -41,7 +41,9 @@
     <a>現金支払い <input id="Cash" class="Turi" type="tel" value = 0 tabindex="1" onchange="Answer()"></a></br>
     <a>払い戻し <input id="Refund" class="Turi" type="tel" value = 0 tabindex="1" onchange="Answer()"></a></br>
     <a>合計 <input id="Answer" class="Result" type="text" readonly value = 50000 ></a></br>
-    </br>
+    
+  
+    </br>    
     <a> 1万円札 × <input id="TenThousand" class="Input" type="tel" maxlength = '3' tabindex="1" onchange="TenThousand()"> = <input id="TenThousandResult" class="Result" type="text" readonly value = 0 ></a></br>
     <a> 5千円札 × <input id="FiveThousand" class="Input" type="tel" maxlength = '3' tabindex="2" onchange="FiveThousand()"> = <input id="FiveThousandResult" class="Result" type="text" readonly value = 0></a></br>
     <a> 2千円札 × <input id="TwoThousand" class="Input" type="tel" maxlength = '3' tabindex="3" onchange="TwoThousand()"> = <input id="TwoThousandResult" class="Result" type="text" readonly value = 0></a></br>
@@ -52,18 +54,50 @@
     <a> 10円玉 × <input id="Ten" class="Input" type="tel" maxlength = '3' tabindex="8" onchange="Ten()"> = <input id="TenResult" class="Result" type="text" readonly value = 0></a></br>
     <a>　5円玉 × <input id="Five" class="Input" type="tel" maxlength = '3' tabindex="9" onchange="Five()"> = <input id="FiveResult" class="Result" type="text" readonly value = 0></a></br>
     <a>　1円玉 × <input id="One" class="Input" type="tel" maxlength = '3' tabindex="10" onchange="One()"> = <input id="OneResult" class="Result" type="text" readonly value = 0></a></br>
-    </br>
+    
     <a>レジ残金 <input id="AllResult" class="Result" type="text" readonly value = 0 ></a></br>
-  
-    </br>
+      
     <a>結果<input id="Judge" class="Judge" type="text" readonly ></a></br>
+    <a href="javascript:AllClear()">クリア</a>
 
+    
 
 
 
 
     <script>
      
+    function AllClear() {
+          
+      if(!window.confirm('クリアしますか？')){
+        return;
+      }
+      document.getElementById('TenThousand').value = ''
+      document.getElementById('FiveThousand').value = ''
+      document.getElementById('TwoThousand').value = ''
+      document.getElementById('OneThousand').value = ''
+      document.getElementById('FiveHundred').value = ''
+      document.getElementById('OneHundred').value = ''
+      document.getElementById('Fifty').value = ''
+      document.getElementById('Ten').value = ''
+      document.getElementById('Five').value = ''
+      document.getElementById('One').value = '' 
+
+      document.getElementById('TenThousandResult').value = 0
+      document.getElementById('FiveThousandResult').value = 0
+      document.getElementById('TwoThousandResult').value = 0
+      document.getElementById('OneThousandResult').value = 0
+      document.getElementById('FiveHundredResult').value = 0
+      document.getElementById('OneHundredResult').value = 0
+      document.getElementById('FiftyResult').value = 0
+      document.getElementById('TenResult').value = 0
+      document.getElementById('FiveResult').value = 0
+      document.getElementById('OneResult').value = 0
+
+      document.getElementById('AllResult').value = 0
+      document.getElementById('Judge').value = ''
+      
+    }
      
      function Answer(){ 
     
